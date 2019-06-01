@@ -1,0 +1,20 @@
+version: "3"
+services:
+  r:
+    # image: atusy/atusyverse
+    build: "."
+    restart: always
+    ports:
+      - "8787:8787"
+    env_file: 
+      # Template is secret_.env
+      - secret.env
+    environment:
+      - USER=rstudio
+      - ROOT=true
+      - VIRTUAL_HOST=rstudio.localhost
+    volumes:
+      - /home/atusy/Documents/R:/home/rstudio/R
+      - /home/atusy/Documents:/home/rstudio/Documents
+      - ./.rstudio:/home/rstudio/.rstudio
+    network_mode: "bridge"
