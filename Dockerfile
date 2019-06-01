@@ -1,5 +1,9 @@
 FROM atusy/atusyverse:dev
 
+ARG GITHUB_PAT=""
+
+RUN echo "GITHUB_PAT=${GITHUB_PAT}" >> /usr/local/lib/R/etc/Renviron
+
 RUN tlmgr install lineno \
   && tlmgr path add \
   && chown -R root:staff /opt/TinyTeX \
