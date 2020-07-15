@@ -16,6 +16,8 @@ services:
       - USER=rstudio
       - ROOT=true
       - VIRTUAL_HOST=rstudio.localhost
+    security_opt:
+      - seccomp:"./chrome.json"
     volumes:
       - /home/atusy/Documents/R:/home/rstudio/R
       - /home/atusy/Documents:/home/rstudio/Documents
